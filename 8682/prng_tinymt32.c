@@ -1,4 +1,8 @@
-#include "tinymt32.h"
+#include "prng_tinymt32.h"
+
+#include <stdint.h>
+
+typedef struct { uint32_t s[4]; } tinymt32_t;
 
 void tinymt32_step(tinymt32_t* tmt) {
     uint32_t x, y;
@@ -19,8 +23,8 @@ void tinymt32_step(tinymt32_t* tmt) {
     }
 }
 
-void tinymt32_seed(tinymt32_t* tmt, uint32_t seed) {
-    int i;
+void prng_tinymt32_seed(void* state, unsigned long seed) {
+    tinymt32_t* tmt = state; int i;
 
     tmt->s[0] = seed;
     tmt->s[1] = UINT32_C(0x8f7011ee);
@@ -35,7 +39,8 @@ void tinymt32_seed(tinymt32_t* tmt, uint32_t seed) {
         tinymt32_step(tmt);
 }
 
-uint32_t tinymt32_rand(tinymt32_t* tmt) {
+unsigned long prng_tinymt32_rand(void* state) {
+    tinymt32_t* tmt = state;
     uint32_t t0, t1;
 
     tinymt32_step(tmt);

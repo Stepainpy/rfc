@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-#include "tinymt32.h"
+#include "prng_tinymt32.h"
 
 int main(void) {
-    tinymt32_t s; int i;
+    char s[16]; int i;
 
-    tinymt32_seed(&s, 1);
+    prng_tinymt32_seed(s, 1);
     for (i = 1; i <= 50; i++) {
-        printf("%10u ", tinymt32_rand(&s));
+        printf("%10lu ", prng_tinymt32_rand(s));
         if (i % 5 == 0) putchar('\n');
     }
 
