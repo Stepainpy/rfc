@@ -1,4 +1,4 @@
-# Request for Comments (RFC)
+# Request For Comments
 
 Implemetation some algorithms from RFC's.
 
@@ -13,3 +13,9 @@ Implemetation some algorithms from RFC's.
 > [RFC 8682](https://datatracker.ietf.org/doc/html/rfc8682)
 > **TinyMT32 Pseudorandom Number Generator (PRNG)**  
 > PRNG with period 2^127 - 1 and 127-bit internal state size.
+
+Work in progress:
+
+> [RFC 8032](https://datatracker.ietf.org/doc/html/rfc8032)
+> **Edwards-Curve Digital Signature Algorithm (EdDSA)**  
+> Signature algorithm on Edward's curve.
